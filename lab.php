@@ -38,23 +38,32 @@ asort($ceu);
 
 <h1>Data from File</h1>
 <?php
-$arr = array(); 
-foreach(file("data.txt") as $item){
-    list($key, $value) = explode(" ", $item);
-    $arr[$key] = $value;
-}
+// $arr = array(); 
+// foreach(file("data.txt") as $item){
+//     list($key, $value) = explode(" ", $item);
+//     $arr[$key] = $value;
+// }
 
-foreach($arr as $k => $v){
-    print "Key: " .$k.", Value: ".$v."<br>";
-    print $arr["name"];
+// foreach($arr as $k => $v){
+//     print "Key: " .$k.", Value: ".$v."<br>";
+//     print $arr["name"];
     
+// }
+
+// foreach(file('data.txt') as $line) {
+//     echo $line . "\n";
+//  } 
+
+
+$myFile = new SplFileObject("data.txt");
+while (!$myFile->eof()) {
+    echo $myFile->fgets()."<br/>";
 }
 ?>
 
+
 <h1>Insert into array</h1>
 <?php
-
-
 $numbers = array(1, 2, 3, 4, 5);
 $insert = array("$");
 $postion = 4;
